@@ -14,6 +14,7 @@ public class ScoreboardHandler {
 
     public void updateScores(String key, String value, int homeScore, int awayScore) {
         if (homeScore < 0 || awayScore < 0) {
+            System.out.println("Scores cannot be below 0");
             return;
         }
 
@@ -24,6 +25,7 @@ public class ScoreboardHandler {
         for (var entry : scores.entrySet()) {
             if (p.equals(entry.getKey())) {
                 scores.replace(entry.getKey(), new Pair<>(homeScore, awayScore));
+                System.out.println("Updated!");
                 return;
             }
         }
