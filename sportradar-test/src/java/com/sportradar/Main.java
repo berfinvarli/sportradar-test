@@ -18,7 +18,8 @@ public class Main {
     public static void printTable() {
         System.out.println("Input 1 to enter new scores");
         System.out.println("Input 2 to enter print results");
-        System.out.println("Input 3 to Exit");
+        System.out.println("Input 3 to finish a game");
+        System.out.println("Input 4 to Exit");
     }
 
     public static void simulate() {
@@ -32,10 +33,10 @@ public class Main {
         while (!finishSimulation) {
             try {
                 choice = sc.nextInt();
-
+                String homeTeam;
+                String awayTeam;
                 if (choice == 1) {
-                    String homeTeam;
-                    String awayTeam;
+
                     int homeScore;
                     int awayScore;
                     try {
@@ -57,9 +58,15 @@ public class Main {
                 } else if (choice == 2) {
                     scoreboardHandler.printScoreboard();
                 } else if (choice == 3) {
+                    System.out.println("Enter Home Team Name: ");
+                    homeTeam = sc.next();
+                    System.out.println("Enter Away Team Name: ");
+                    awayTeam = sc.next();
+                    scoreboardHandler.removeGame(homeTeam, awayTeam);
+                } else if (choice == 4) {
                     finishSimulation = true;
                 } else {
-                    System.err.println("Enter Between 1-3");
+                    System.err.println("Enter Between 1-4");
                     printTable();
                 }
             } catch (Exception e) {
@@ -75,4 +82,5 @@ public class Main {
 
         System.out.println("Exited");
     }
+}
 }
