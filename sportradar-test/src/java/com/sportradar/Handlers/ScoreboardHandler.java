@@ -33,7 +33,22 @@ public class ScoreboardHandler {
         }
         System.out.println("Could not find " + key + " or " + value + " in the system");
     }
+    
+    public void removeGame(String key, String value) {
+        key = Utils.formatInputs(key);
+        value = Utils.formatInputs(value);
 
+        Pair<String, String> p = new Pair<>(key, value);
+        for (var entry : scores.entrySet()) {
+            if (p.equals(entry.getKey())) {
+                scores.remove(entry.getKey());
+                System.out.println("Removed!");
+                return;
+            }
+        }
+        System.out.println("Could not find " + key + " or " + value + " in the system");
+    }
+    
     public void printScoreboard() {
         List<Map.Entry<Pair<String, String>, Integer>> list = new ArrayList<>();
 
