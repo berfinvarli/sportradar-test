@@ -60,7 +60,7 @@ public class ScoreboardHandler {
         Collections.reverse(list);
 
         for (var element : list) {
-            System.out.println(element.getKey().getKey() + " - " + element.getKey().getValue() + " " + element.getValue());
+            System.out.println(element.getKey().getKey()  + " " + scores.get(element.getKey()).getKey() + " - " + element.getKey().getValue() + " " + scores.get(element.getKey()).getValue());
         }
         System.out.println();
     }
