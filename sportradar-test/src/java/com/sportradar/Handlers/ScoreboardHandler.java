@@ -24,7 +24,9 @@ public class ScoreboardHandler {
         Pair<String, String> p = new Pair<>(key, value);
         for (var entry : scores.entrySet()) {
             if (p.equals(entry.getKey())) {
-                scores.replace(entry.getKey(), new Pair<>(homeScore, awayScore));
+                // Insertion order preserved. Removed scores.replace()
+                scores.remove(entry.getKey());
+                scores.put(new Pair<>(key, value), new Pair<>(homeScore, awayScore));
                 System.out.println("Updated!");
                 return;
             }
